@@ -1,0 +1,126 @@
+/* reset css */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+/* Navigation */
+nav {
+  background: #333;
+  height: 50px;
+}
+nav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 50px;
+}
+nav a:nth-of-type(1) {
+  margin-left: 50px;
+}
+
+nav a:hover {
+  background: #ddd;
+  color: black;
+}
+
+/* Columns */
+
+.row {
+  width: 100%;
+}
+.outer-box {
+  width: 25%;
+  /* display: inline-block; */
+  float: left;
+}
+.column {
+  padding: 20px;
+  margin: 20px;
+  height: 300px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* 
+.clearfix {
+    display: block;
+    clear: both;
+} */
+
+/* First paragraph, which is targeted with + selector */
+div + p {
+  border: 1px solid red;
+  font-size: 25px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+/* Second paragraph block, which will be visible less than 600px screen size */
+.example {
+  background: yellow;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  display: none;
+}
+
+/* Picture part with changeable multiple source according to screen size */
+.image-box {
+  margin: 20px;
+}
+.image-box picture img {
+  width: 100%;
+}
+
+/* Breakpoint : 992px for large tablets */
+@media screen and (min-width: 601px) and (max-width: 992px) {
+  .outer-box {
+    width: 50%;
+  }
+  .example {
+    display: block;
+  }
+  /* .image-box {
+        display: none;
+    } */
+}
+
+/* Breakpoint : 600px for mobiles */
+@media screen and (max-width: 600px) {
+  nav {
+    text-align: center;
+  }
+  nav a {
+    width: 100%;
+    padding: 15px 5px;
+  }
+  nav a:nth-of-type(1) {
+    margin-left: 0;
+  }
+  .outer-box {
+    width: 100%;
+  }
+  .column {
+    height: 100px;
+  }
+  .example {
+    display: none;
+  }
+  div + p {
+    font-size: 15px;
+  }
+}
